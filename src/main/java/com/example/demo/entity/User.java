@@ -1,12 +1,19 @@
-package com.example.demo.dto;
+package com.example.demo.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 /**
- * @TimeStamp 2024-11-07 21:28
+ * @TimeStamp 2024-11-08 21:50
  * @ProjectDetails demo
  * @Author udarasan
  */
-//DTO - DATA TRANSFER OBJECTS
-public class UserDTO {
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
     private String password;
@@ -14,7 +21,7 @@ public class UserDTO {
     private String sName;
     private String email;
 
-    public UserDTO(int id, String username, String password, String fName, String sName, String email) {
+    public User(int id, String username, String password, String fName, String sName, String email) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -23,7 +30,7 @@ public class UserDTO {
         this.email = email;
     }
 
-    public UserDTO() {
+    public User() {
     }
 
     public int getId() {
