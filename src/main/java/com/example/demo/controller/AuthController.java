@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.UserDTO;
-import com.example.demo.service.AuthService;
+import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     //dependency injection
     @Autowired
-    private AuthService authService;
+    private UserService authService;
     @PostMapping("/login") //JSON OBJECT --->  In JAVA (JAVA OBJECTS)
     public boolean login(@RequestBody UserDTO userDTO){
         authService.checkLoginDetails(userDTO);
