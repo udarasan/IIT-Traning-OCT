@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @TimeStamp 2024-11-07 21:39
@@ -80,5 +81,24 @@ public class UserService {
 
         userRepository.save(test);
     }
+    public void deleteUserOnService(int id){
+        userRepository.deleteById(id);
+    }
+    public Optional<User> getOneUserOnService(int userid){
+        Optional <User> user=userRepository.findById(userid);
+        return user;
+    }
+    public List<UserDTO> getAllUsersByCustomQuery(String email){
+        System.out.println(email);
+        List<User>userList = userRepository.getAllUsers(email);
+        List<UserDTO>userDTOS=new ArrayList<>();
+        for (User user:userList) {
+            UserDTO userDTO=new UserDTO(user.getId(),user.getUsername(),user.getPassword(),user.getfName(),user.getsName(),user.getEmail());
+            userDTOS.add(userDTO);
+        }
+
+        return userDTOS;
+    }
+
 
 }
