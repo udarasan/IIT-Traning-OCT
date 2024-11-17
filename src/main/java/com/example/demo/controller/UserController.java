@@ -14,6 +14,7 @@ import java.util.Optional;
  * @ProjectDetails demo
  * @Author udarasan
  */
+
 @RestController
 @RequestMapping("api/v1/user")
 @CrossOrigin
@@ -35,6 +36,7 @@ public class UserController {
 
     @GetMapping("/getAllUsers")
     public List<UserDTO> getAllUsers(){
+
        List<UserDTO> userList=userService.getAllUsersOnService();
        return userList;
     }
@@ -57,5 +59,7 @@ public class UserController {
         List<UserDTO> userList=userService.getAllUsersByCustomQuery(email);
         return userList;
     }
+
+
 
 }

@@ -85,8 +85,16 @@ public class UserService {
         userRepository.deleteById(id);
     }
     public Optional<User> getOneUserOnService(int userid){
-        Optional <User> user=userRepository.findById(userid);
-        return user;
+
+        try {
+            Optional <User> user=userRepository.findById(userid);
+            return user;
+        }catch (Exception e){
+            return null;
+        }
+
+
+
     }
     public List<UserDTO> getAllUsersByCustomQuery(String email){
         System.out.println(email);
